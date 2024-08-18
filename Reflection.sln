@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35013.160
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReflectionExe", "ReflectionExe\ReflectionExe.csproj", "{14AE49B5-00FB-41AA-A66C-A3206F74EAC4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicClasses", "LogicClasses\LogicClasses.csproj", "{A32B6A99-93B7-4150-A02E-751A1CD48BB7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{14AE49B5-00FB-41AA-A66C-A3206F74EAC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14AE49B5-00FB-41AA-A66C-A3206F74EAC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14AE49B5-00FB-41AA-A66C-A3206F74EAC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14AE49B5-00FB-41AA-A66C-A3206F74EAC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A32B6A99-93B7-4150-A02E-751A1CD48BB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A32B6A99-93B7-4150-A02E-751A1CD48BB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A32B6A99-93B7-4150-A02E-751A1CD48BB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A32B6A99-93B7-4150-A02E-751A1CD48BB7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8375258D-0561-4A33-BA39-D0658BA70511}
+	EndGlobalSection
+EndGlobal
