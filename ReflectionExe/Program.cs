@@ -7,6 +7,12 @@ namespace ReflectionExe
     {
         static void Main(string[] args)
         {
+            #region Fetching Existing Tables On the Start
+            //Fetching already existing tables
+            ExistingTables.FetchAll();
+            Console.WriteLine("\n-----------------------\n");
+            #endregion
+
             #region Creation Process
             string? numOfTablesInput;
             uint numOfTables;
@@ -34,28 +40,28 @@ namespace ReflectionExe
 
 
             #region Insertion Process
-            string? input;
-            Type? table = default;
+            //string? input;
+            //Type? table = default;
 
-            do
-            {
-                Console.WriteLine("Enter The Table Name That You Want To Insert Into it");
-                input = Console.ReadLine();
-            }
-            while (string.IsNullOrEmpty(input) || !Tables.UserTables.ContainsValue(input));
+            //do
+            //{
+            //    Console.WriteLine("Enter The Table Name That You Want To Insert Into it");
+            //    input = Console.ReadLine();
+            //}
+            //while (string.IsNullOrEmpty(input) || !Tables.UserTables.ContainsValue(input));
             #endregion
 
-            table = Tables.UserTables.FirstOrDefault(KeyValue 
-                => KeyValue.Value == input).Key;
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine(table);
-            //foreach (KeyValuePair<Type, string> keyValue in Tables.UserTables)
-            //{
-            //    table = keyValue.Value == input ? keyValue.Key : keyValue.Key.GetType();
-            //}
+            //table = Tables.UserTables.FirstOrDefault(KeyValue 
+            //    => KeyValue.Value == input).Key;
+            //Console.WriteLine();
+            //Console.WriteLine();
+            //Console.WriteLine(table);
+            ////foreach (KeyValuePair<Type, string> keyValue in Tables.UserTables)
+            ////{
+            ////    table = keyValue.Value == input ? keyValue.Key : keyValue.Key.GetType();
+            ////}
 
-            Insertion.InsertDataIntoTable(table);
+            //Insertion.InsertDataIntoTable(table);
 
             //--------------------------------
 

@@ -2,6 +2,8 @@
 {
     public static class UserPrompt
     {
+        public static List<string> columnDataTypeInSqlForm { get; private set; } = new List<string>();
+
         #region Table
         //Enter Table
         public static string TableName()
@@ -21,6 +23,7 @@
                 {
                     Console.WriteLine($"You already has The {input} table");
                     Console.WriteLine("You can only insert, update or delete on this table");
+                    Console.WriteLine("\n-----------------------\n");
                 }
                 else
                 {
@@ -37,7 +40,7 @@
         {
             try
             {
-                StreamReader sr = new StreamReader($@".\{fileName.ToLower()}.txt");
+                StreamReader sr = new StreamReader($@".\Created Tables\{fileName.ToLower()}.txt");
                 return true;
             }
             catch (FileNotFoundException)
@@ -77,11 +80,11 @@
                 do
                 {
                     Console.WriteLine($"Enter The {i + 1} Column Data Type: ");
-                    Console.WriteLine("Note: Enter the following types as provided exactly");
-                    Console.WriteLine(" char , varchar");
+                    Console.WriteLine("Note: Write (char , varchar) no range specification allowed");
                     input = Console.ReadLine();
                 }                                  
                 while (string.IsNullOrEmpty(input) || CheckColumnDataType(input) == null);
+                columnDataTypeInSqlForm.Add(input);
                 colsDataType.Add(CheckColumnDataType(input));
             }
 
@@ -89,7 +92,7 @@
             return cols;
         }
 
-        private static Type? CheckColumnDataType(string typeString)
+        public static Type? CheckColumnDataType(string typeString)
         {
             switch (typeString.ToLower())
             {
@@ -154,7 +157,7 @@
 
         #region File Creation
         //Create the file
-        public static void CreateFileForTable(string tableName, List<Type> colDataType, List<string> columns)
+        public static void CreateFileForTable(string tableName, List<string> columns)
         {
             //FileHeader
             using (StreamWriter sw = new StreamWriter(@$".\Created Tables\{tableName.ToLower()}.txt", false))
@@ -164,10 +167,10 @@
                 {
                     if (i == columns.Count - 1)
                     {
-                        sw.WriteLine($"{colDataType[i]}:{columns[i]}");
+                        sw.WriteLine($"{columnDataTypeInSqlForm[i]}:{columns[i]}");
                         break;
                     }
-                    sw.Write($"{colDataType[i]}:{columns[i]},");
+                    sw.Write($"{columnDataTypeInSqlForm[i]}:{columns[i]},");
                 }
 
                 //for (int j = 0; j < columns?.Count; j++)
