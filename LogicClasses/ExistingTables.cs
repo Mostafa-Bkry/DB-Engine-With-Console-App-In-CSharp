@@ -33,9 +33,10 @@ namespace LogicClasses
                 for (int i = 0; i < txtFiles.Length; i++)
                 {
                     txtFilesNamesOnly[i] = Path.GetFileNameWithoutExtension(txtFiles[i]);
-                    Console.WriteLine(txtFilesNamesOnly[i]);
+                    Console.WriteLine($"Existing Table: {txtFilesNamesOnly[i]}");
                 }
 
+                Console.WriteLine();
                 return txtFilesNamesOnly;
             }
             catch (Exception ex)
@@ -50,9 +51,6 @@ namespace LogicClasses
         //Dynamic Creation of their classes as new types
         private static void CreateExistingTables(string[] existingTablesArr)
         {
-            List<string> columnsName = new List<string>();
-            List<Type> columnsType = new List<Type>();
-
             for (int i = 0; i < existingTablesArr?.Length; i++)
             {
                 string tableName = existingTablesArr[i];
@@ -60,6 +58,9 @@ namespace LogicClasses
 
                 if (cols.Count > 0)
                 {
+                    List<string> columnsName = new List<string>();
+                    List<Type> columnsType = new List<Type>();
+
                     foreach (string col in cols)
                     {
                         Type t = UserPrompt.CheckColumnDataType(col.Split(":")[0]);
@@ -67,15 +68,13 @@ namespace LogicClasses
                         columnsType.Add(t);
                         columnsName.Add(col.Split(":")[1]);
                     }
-                }
-            }
 
-            for (int j = 0; j < existingTablesArr?.Length; j++)
-            {
-                string tableName = existingTablesArr[j];
-                Type table =
-                    DynamicTypeCreation.CreateAndSaveDynamicType(tableName, columnsName, columnsType);
-                Tables.AddTable(table, tableName);
+                    Type table =
+                        DynamicTypeCreation.CreateAndSaveDynamicType(tableName, columnsName, columnsType);
+                    Tables.AddTable(table, tableName);
+
+                    Console.WriteLine();
+                }
             }
         }
 

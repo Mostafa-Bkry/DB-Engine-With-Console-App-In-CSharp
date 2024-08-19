@@ -7,59 +7,60 @@ namespace ReflectionExe
     {
         static void Main(string[] args)
         {
-            #region Fetching Existing Tables On the Start
+            #region Fetching Existing Tables On the App Starting
             //Fetching already existing tables
             ExistingTables.FetchAll();
             Console.WriteLine("\n-----------------------\n");
             #endregion
 
+
             #region Creation Process
-            string? numOfTablesInput;
-            uint numOfTables;
+            //string? numOfTablesInput;
+            //uint numOfTables;
 
-            do
-            {
-                Console.WriteLine("How many tables do you want to create?");
-                numOfTablesInput = Console.ReadLine();
-            }
-            while (string.IsNullOrEmpty(numOfTablesInput) ||
-                !uint.TryParse(numOfTablesInput, out numOfTables));
+            //do
+            //{
+            //    Console.WriteLine("How many tables do you want to create?");
+            //    numOfTablesInput = Console.ReadLine();
+            //}
+            //while (string.IsNullOrEmpty(numOfTablesInput) ||
+            //    !uint.TryParse(numOfTablesInput, out numOfTables));
 
-            Creation.CreateTables(numOfTables);
+            //Creation.CreateTables(numOfTables);
 
-            foreach (KeyValuePair<Type, string> keyValue in Tables.UserTables)
-            {
-                Console.WriteLine($"Table Name: {keyValue.Value}");
-                Console.WriteLine($"Table Type: {keyValue.Key}");
-                foreach (var item in keyValue.Key.GetProperties())
-                {
-                    Console.WriteLine($"---{item}");
-                }
-            }
+            //foreach (KeyValuePair<Type, string> keyValue in Tables.UserTables)
+            //{
+            //    Console.WriteLine($"Table Name: {keyValue.Value}");
+            //    Console.WriteLine($"Table Type: {keyValue.Key}");
+            //    foreach (var item in keyValue.Key.GetProperties())
+            //    {
+            //        Console.WriteLine($"---{item}");
+            //    }
+            //}
             #endregion
 
 
             #region Insertion Process
-            //string? input;
-            //Type? table = default;
+            string? input;
+            Type? table = default;
 
-            //do
-            //{
-            //    Console.WriteLine("Enter The Table Name That You Want To Insert Into it");
-            //    input = Console.ReadLine();
-            //}
-            //while (string.IsNullOrEmpty(input) || !Tables.UserTables.ContainsValue(input));
+            do
+            {
+                Console.WriteLine("Enter The Table Name That You Want To Insert Into it");
+                input = Console.ReadLine();
+            }
+            while (string.IsNullOrEmpty(input) || !Tables.UserTables.ContainsValue(input));
             #endregion
 
-            //table = Tables.UserTables.FirstOrDefault(KeyValue 
-            //    => KeyValue.Value == input).Key;
-            //Console.WriteLine();
-            //Console.WriteLine();
-            //Console.WriteLine(table);
-            ////foreach (KeyValuePair<Type, string> keyValue in Tables.UserTables)
-            ////{
-            ////    table = keyValue.Value == input ? keyValue.Key : keyValue.Key.GetType();
-            ////}
+            table = Tables.UserTables.FirstOrDefault(KeyValue
+                => KeyValue.Value == input).Key;
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine(table);
+            //foreach (KeyValuePair<Type, string> keyValue in Tables.UserTables)
+            //{
+            //    table = keyValue.Value == input ? keyValue.Key : keyValue.Key.GetType();
+            //}
 
             //Insertion.InsertDataIntoTable(table);
 
