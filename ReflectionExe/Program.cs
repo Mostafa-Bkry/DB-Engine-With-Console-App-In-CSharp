@@ -13,6 +13,7 @@ namespace ReflectionExe
             Console.WriteLine("\n-----------------------\n");
             #endregion
 
+            //--------------------------------
 
             #region Creation Process
             //string? numOfTablesInput;
@@ -39,6 +40,7 @@ namespace ReflectionExe
             //}
             #endregion
 
+            //--------------------------------
 
             #region Insertion Process
             string? input;
@@ -49,42 +51,15 @@ namespace ReflectionExe
                 Console.WriteLine("Enter The Table Name That You Want To Insert Into it");
                 input = Console.ReadLine();
             }
-            while (string.IsNullOrEmpty(input) || !Tables.UserTables.ContainsValue(input));
-            #endregion
+            while (string.IsNullOrEmpty(input) || !Tables.UserTables.ContainsValue(input.ToLower()));
 
             table = Tables.UserTables.FirstOrDefault(KeyValue
-                => KeyValue.Value == input).Key;
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine(table);
-            //foreach (KeyValuePair<Type, string> keyValue in Tables.UserTables)
-            //{
-            //    table = keyValue.Value == input ? keyValue.Key : keyValue.Key.GetType();
-            //}
+                => KeyValue.Value == input.ToLower()).Key;
 
-            //Insertion.InsertDataIntoTable(table);
 
-            //--------------------------------
-
-            #region MyRegion
-            //string fileContent = File.ReadAllText(@$".\{tableName}.txt");
-
-            //string[] lines = fileContent.Split(Environment.NewLine/*, StringSplitOptions.RemoveEmptyEntries*/);
-
-            //// the third line contains columns values
-            //string[] values = lines[2].Split(',');
-
-            //// Create an instance of the dynamic type
-            //var instance = Activator.CreateInstance(table);
-
-            //// Set property values
-            //PropertyInfo nameProperty = table.GetProperty($"{columns[1]}");
-            //nameProperty.SetValue(instance, values[1]);
-
-            //// Get property values
-            //string nameValue = (string)nameProperty.GetValue(instance);
-            //Console.WriteLine($"Name: {nameValue}"); 
+            Insertion.InsertDataIntoTable(table);
             #endregion
+
         }
     }
 }
