@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "ReflectionExe/1.0.0": {
+        "dependencies": {
+          "LogicClasses": "1.0.0"
+        },
+        "runtime": {
+          "ReflectionExe.dll": {}
+        }
+      },
+      "LogicClasses/1.0.0": {
+        "runtime": {
+          "LogicClasses.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ReflectionExe/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "LogicClasses/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

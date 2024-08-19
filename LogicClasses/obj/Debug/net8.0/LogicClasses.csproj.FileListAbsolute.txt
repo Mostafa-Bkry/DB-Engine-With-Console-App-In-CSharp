@@ -1,0 +1,11 @@
+D:\Courses\DEPI\Technical\2- C#\Final Project (Reflection)\My Work\Reflection\LogicClasses\bin\Debug\net8.0\LogicClasses.deps.json
+D:\Courses\DEPI\Technical\2- C#\Final Project (Reflection)\My Work\Reflection\LogicClasses\bin\Debug\net8.0\LogicClasses.dll
+D:\Courses\DEPI\Technical\2- C#\Final Project (Reflection)\My Work\Reflection\LogicClasses\bin\Debug\net8.0\LogicClasses.pdb
+D:\Courses\DEPI\Technical\2- C#\Final Project (Reflection)\My Work\Reflection\LogicClasses\obj\Debug\net8.0\LogicClasses.GeneratedMSBuildEditorConfig.editorconfig
+D:\Courses\DEPI\Technical\2- C#\Final Project (Reflection)\My Work\Reflection\LogicClasses\obj\Debug\net8.0\LogicClasses.AssemblyInfoInputs.cache
+D:\Courses\DEPI\Technical\2- C#\Final Project (Reflection)\My Work\Reflection\LogicClasses\obj\Debug\net8.0\LogicClasses.AssemblyInfo.cs
+D:\Courses\DEPI\Technical\2- C#\Final Project (Reflection)\My Work\Reflection\LogicClasses\obj\Debug\net8.0\LogicClasses.csproj.CoreCompileInputs.cache
+D:\Courses\DEPI\Technical\2- C#\Final Project (Reflection)\My Work\Reflection\LogicClasses\obj\Debug\net8.0\LogicClasses.dll
+D:\Courses\DEPI\Technical\2- C#\Final Project (Reflection)\My Work\Reflection\LogicClasses\obj\Debug\net8.0\refint\LogicClasses.dll
+D:\Courses\DEPI\Technical\2- C#\Final Project (Reflection)\My Work\Reflection\LogicClasses\obj\Debug\net8.0\LogicClasses.pdb
+D:\Courses\DEPI\Technical\2- C#\Final Project (Reflection)\My Work\Reflection\LogicClasses\obj\Debug\net8.0\ref\LogicClasses.dll
