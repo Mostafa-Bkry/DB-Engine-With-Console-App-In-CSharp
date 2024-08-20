@@ -16,3 +16,4 @@ D:\Courses\DEPI\Technical\2- C#\Final Project (Reflection)\My Work\Reflection\Re
 D:\Courses\DEPI\Technical\2- C#\Final Project (Reflection)\My Work\Reflection\ReflectionExe\obj\Debug\net8.0\ReflectionExe.pdb
 D:\Courses\DEPI\Technical\2- C#\Final Project (Reflection)\My Work\Reflection\ReflectionExe\obj\Debug\net8.0\ReflectionExe.genruntimeconfig.cache
 D:\Courses\DEPI\Technical\2- C#\Final Project (Reflection)\My Work\Reflection\ReflectionExe\obj\Debug\net8.0\ref\ReflectionExe.dll
+D:\Courses\DEPI\Technical\2- C#\Final Project (Reflection)\My Work\Reflection\ReflectionExe\obj\Debug\net8.0\ReflectionExe.sourcelink.json

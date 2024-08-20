@@ -1,4 +1,5 @@
-﻿using System.Formats.Tar;
+﻿using System.Collections.Generic;
+using System.Formats.Tar;
 
 namespace LogicClasses
 {
@@ -73,6 +74,10 @@ namespace LogicClasses
                         DynamicTypeCreation.CreateAndSaveDynamicType(tableName, columnsName, columnsType);
                     Tables.AddTable(table, tableName);
 
+                    //fetching existing data inside table txt file
+                    List<string[]> data = GetTableDataFromFile(tableName) ?? new List<string[]>();
+                    Tables.AddTableData(table, data);
+                    
                     Console.WriteLine();
                 }
             }
@@ -118,6 +123,44 @@ namespace LogicClasses
                 return null;
             }
         }
+        #endregion
+
+        #region Fetching Each Table Data if exists from its txt file
+        private static List<string[]>? GetTableDataFromFile(string tableName)
+        {
+            List<string[]> tableData = new List<string[]>();
+            string filePath = @$".\Created Tables\{tableName}.txt";
+
+            // Read the starting from the third line from the file
+            try
+            {
+                string[] allLines = File.ReadAllLines(filePath);
+
+                for (int i = 2; i < allLines?.Length; i++)
+                {
+                    string line = allLines[i];
+
+                    if (string.IsNullOrEmpty(line))
+                        continue;
+
+                    string[] colsData = line.Split(",");
+                    tableData.Add(colsData);
+                }
+
+                Console.WriteLine($"Fetched the {tableName} rows into TablesData successfully");
+                return tableData;
+            }
+            catch (FileNotFoundException)
+            {
+                Console.WriteLine("File Not Found");
+                return null;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+                return null;
+            }
+        } 
         #endregion
     }
 }

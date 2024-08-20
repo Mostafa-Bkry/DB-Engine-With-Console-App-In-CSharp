@@ -9,3 +9,4 @@ D:\Courses\DEPI\Technical\2- C#\Final Project (Reflection)\My Work\Reflection\Lo
 D:\Courses\DEPI\Technical\2- C#\Final Project (Reflection)\My Work\Reflection\LogicClasses\obj\Debug\net8.0\refint\LogicClasses.dll
 D:\Courses\DEPI\Technical\2- C#\Final Project (Reflection)\My Work\Reflection\LogicClasses\obj\Debug\net8.0\LogicClasses.pdb
 D:\Courses\DEPI\Technical\2- C#\Final Project (Reflection)\My Work\Reflection\LogicClasses\obj\Debug\net8.0\ref\LogicClasses.dll
+D:\Courses\DEPI\Technical\2- C#\Final Project (Reflection)\My Work\Reflection\LogicClasses\obj\Debug\net8.0\LogicClasses.sourcelink.json

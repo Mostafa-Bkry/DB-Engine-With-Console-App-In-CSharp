@@ -1,3 +1,9 @@
 Student
 int:Id,varchar:Name,int:Age
-
+1,Mostafa,20
+2,Ahmed,35
+3,Ali,35
+4,Khaled,111
+5,hassan,35
+6,Ahmed,22
+7,Zain,44

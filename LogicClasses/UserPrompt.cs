@@ -32,7 +32,7 @@
             }
 
 
-            return input;
+            return input.ToLower();
         }
 
         //Check If the user already created the table
