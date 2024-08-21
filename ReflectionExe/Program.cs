@@ -36,7 +36,14 @@ namespace ReflectionExe
             //--------------------------------
 
             #region Deletion Process
-            Deletion.DeleteUserPrompt();
+            //Deletion.DeleteUserPrompt();
+            //Console.WriteLine("---------------------------------------------------\n");
+            #endregion
+
+            //--------------------------------
+
+            #region Updation Process
+            Updation.UpdateUserPrompt();
             Console.WriteLine("---------------------------------------------------\n");
             #endregion
         }
