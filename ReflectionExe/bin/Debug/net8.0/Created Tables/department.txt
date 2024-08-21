@@ -1,2 +1,0 @@
-department
-int:Id,varchar:Name,varchar:description

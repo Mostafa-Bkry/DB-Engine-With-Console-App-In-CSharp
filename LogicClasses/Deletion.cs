@@ -28,6 +28,15 @@ namespace LogicClasses
 
             tableName = input;
 
+            //Checking if the table has no data
+            if ((Tables.TablesData?
+                       .FirstOrDefault(t => t.Table.Name.ToLower() == tableName.ToLower())?
+                       .Data.Count ?? 0) < 1)
+            {
+                Console.WriteLine($"\nThe {tableName} table already has no records");
+                return;
+            }
+
             do
             {
                 Console.WriteLine("How many records do you want to delete (All, One)");
@@ -175,7 +184,7 @@ namespace LogicClasses
             }
             else
             {
-                Console.WriteLine($"{tableName} table already has no records");
+                Console.WriteLine($"\nThe {tableName} table already has no records");
             }
         }
         #endregion

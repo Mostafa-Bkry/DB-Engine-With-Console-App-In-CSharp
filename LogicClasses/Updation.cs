@@ -28,13 +28,22 @@ namespace LogicClasses
 
             tableName = input;
 
+            //Checking if the table has no data
+            if ((Tables.TablesData?
+                       .FirstOrDefault(t => t.Table.Name.ToLower() == tableName.ToLower())?
+                       .Data.Count ?? 0) < 1)
+            {
+                Console.WriteLine($"\nThe {tableName} table already has no records");
+                return;
+            }
+
 
             #region Showing Table Columns To user
             //table columns
             var tableColumns = Tables.UserTables.Keys
-                                     .Where(t => t.Name.ToLower() == tableName.ToLower())
-                                     .Select(table => table.GetProperties())
-                                     .ToList();
+                                 .Where(t => t.Name.ToLower() == tableName.ToLower())
+                                 .Select(table => table.GetProperties())
+                                 .ToList();
 
             string[]? colNames = default;
 
@@ -130,7 +139,7 @@ namespace LogicClasses
                 {
                     Console.WriteLine("Can't Update Ids with same value (Invalid Duplicate IDs)");
                     return;
-                } 
+                }
                 #endregion
 
                 UpdateAll(tableName, newValueInput, colIndex);
@@ -203,7 +212,7 @@ namespace LogicClasses
                         Console.WriteLine("Can't Update Ids with same value (Invalid Duplicate IDs)");
                         return;
                     }
-                } 
+                }
                 #endregion
 
                 UpdateMatching(tableName, oldValueInput, newValueInput, conditionColIndex);
@@ -246,11 +255,11 @@ namespace LogicClasses
                                 {
                                     string[] row = lines[i].Split(',');
                                     row[columnIndex] = newValue;
-                                    
-                                    for(int j = 0; j < row?.Length; j++)
+
+                                    for (int j = 0; j < row?.Length; j++)
                                     {
                                         // Write the remaining valid lines back to the file
-                                        if(j == row.Length - 1)
+                                        if (j == row.Length - 1)
                                         {
                                             sw.WriteLine($"{row[j]}");
                                             break;
@@ -284,7 +293,7 @@ namespace LogicClasses
             }
             else
             {
-                Console.WriteLine($"{tableName} table already has no records");
+                Console.WriteLine($"\nThe {tableName} table already has no records");
             }
         }
         #endregion

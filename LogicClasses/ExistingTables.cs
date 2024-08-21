@@ -2,7 +2,7 @@
 {
     public class ExistingTables
     {
-        public static List<string> FetchedTablesExiting { get; private set; } = new List<string>();
+        public static List<string> FetchedTablesExiting { get; set; } = new List<string>();
 
         public static void FetchAll()
         {

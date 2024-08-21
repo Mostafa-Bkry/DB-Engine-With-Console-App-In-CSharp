@@ -1,2 +1,0 @@
-Course
-int:ID,varchar:Name,int:Duratoin

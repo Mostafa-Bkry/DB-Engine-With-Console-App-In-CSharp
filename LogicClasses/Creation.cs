@@ -20,6 +20,12 @@ namespace LogicClasses
                 Tables.AddTable(table, tableName);
 
                 Console.WriteLine("\n-----------------------------------\n");
+
+                //Fetching new created table
+                if(!ExistingTables.FetchedTablesExiting.Contains(tableName.ToLower()))
+                {
+                    ExistingTables.FetchedTablesExiting.Add(tableName.ToLower());
+                }
             }
         }
 
@@ -42,6 +48,7 @@ namespace LogicClasses
 
             Creation.CreateTables(numOfTables);
 
+            Console.WriteLine("Your Tables with their Columns:\n");
             foreach (KeyValuePair<Type, string> keyValue in Tables.UserTables)
             {
                 Console.WriteLine($"Table Name: {keyValue.Value}");
