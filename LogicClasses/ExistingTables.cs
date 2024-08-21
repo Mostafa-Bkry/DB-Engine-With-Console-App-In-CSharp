@@ -1,19 +1,15 @@
-﻿using System.Collections.Generic;
-using System.Formats.Tar;
-
-namespace LogicClasses
+﻿namespace LogicClasses
 {
     public class ExistingTables
     {
+        public static List<string> FetchedTablesExiting { get; private set; } = new List<string>();
+
         public static void FetchAll()
         {
             string[]? existingTables = FetchExistingTables();
-            if (existingTables != null)
+            if (existingTables != null && existingTables.Length > 0)
             {
-                if (existingTables.Length > 0)
-                {
-                    CreateExistingTables(existingTables);
-                }
+                CreateExistingTables(existingTables);
             }
         }
 
@@ -38,6 +34,10 @@ namespace LogicClasses
                 }
 
                 Console.WriteLine();
+
+                //Holding tables' names in FetchedTablesExisting List<string>
+                FetchedTablesExiting.AddRange(txtFilesNamesOnly);
+
                 return txtFilesNamesOnly;
             }
             catch (Exception ex)
@@ -47,7 +47,6 @@ namespace LogicClasses
 
             return default;
         }
-
 
         //Dynamic Creation of their classes as new types
         private static void CreateExistingTables(string[] existingTablesArr)
@@ -83,6 +82,8 @@ namespace LogicClasses
             }
         }
 
+        //Getting table columns from the txt file by the second line
+        //that represent the table metadata
         private static List<string>? GetColumns(string tableName)
         {
             List<string> columns = new List<string>();

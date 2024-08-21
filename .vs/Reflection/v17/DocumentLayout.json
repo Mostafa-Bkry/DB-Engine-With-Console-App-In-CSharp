@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "D:\\Courses\\DEPI\\Technical\\2- C#\\Final Project (Reflection)\\My Work\\Reflection\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A32B6A99-93B7-4150-A02E-751A1CD48BB7}|LogicClasses\\LogicClasses.csproj|d:\\courses\\depi\\technical\\2- c#\\final project (reflection)\\my work\\reflection\\logicclasses\\deletion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A32B6A99-93B7-4150-A02E-751A1CD48BB7}|LogicClasses\\LogicClasses.csproj|solutionrelative:logicclasses\\deletion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{14AE49B5-00FB-41AA-A66C-A3206F74EAC4}|ReflectionExe\\ReflectionExe.csproj|d:\\courses\\depi\\technical\\2- c#\\final project (reflection)\\my work\\reflection\\reflectionexe\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{14AE49B5-00FB-41AA-A66C-A3206F74EAC4}|ReflectionExe\\ReflectionExe.csproj|solutionrelative:reflectionexe\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A32B6A99-93B7-4150-A02E-751A1CD48BB7}|LogicClasses\\LogicClasses.csproj|d:\\courses\\depi\\technical\\2- c#\\final project (reflection)\\my work\\reflection\\logicclasses\\selection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A32B6A99-93B7-4150-A02E-751A1CD48BB7}|LogicClasses\\LogicClasses.csproj|solutionrelative:logicclasses\\selection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -22,13 +30,39 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Selection.cs",
+              "DocumentMoniker": "D:\\Courses\\DEPI\\Technical\\2- C#\\Final Project (Reflection)\\My Work\\Reflection\\LogicClasses\\Selection.cs",
+              "RelativeDocumentMoniker": "LogicClasses\\Selection.cs",
+              "ToolTip": "D:\\Courses\\DEPI\\Technical\\2- C#\\Final Project (Reflection)\\My Work\\Reflection\\LogicClasses\\Selection.cs",
+              "RelativeToolTip": "LogicClasses\\Selection.cs",
+              "ViewState": "AQIAAHUAAAAAAAAAAAASwIUAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-20T21:03:43.127Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Deletion.cs",
+              "DocumentMoniker": "D:\\Courses\\DEPI\\Technical\\2- C#\\Final Project (Reflection)\\My Work\\Reflection\\LogicClasses\\Deletion.cs",
+              "RelativeDocumentMoniker": "LogicClasses\\Deletion.cs",
+              "ToolTip": "D:\\Courses\\DEPI\\Technical\\2- C#\\Final Project (Reflection)\\My Work\\Reflection\\LogicClasses\\Deletion.cs",
+              "RelativeToolTip": "LogicClasses\\Deletion.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-20T18:52:05.291Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Courses\\DEPI\\Technical\\2- C#\\Final Project (Reflection)\\My Work\\Reflection\\ReflectionExe\\Program.cs",
               "RelativeDocumentMoniker": "ReflectionExe\\Program.cs",
               "ToolTip": "D:\\Courses\\DEPI\\Technical\\2- C#\\Final Project (Reflection)\\My Work\\Reflection\\ReflectionExe\\Program.cs",
               "RelativeToolTip": "ReflectionExe\\Program.cs",
-              "ViewState": "AQIAAAcAAAAAAAAAAAA1wBcAAAAMAAAA",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAUwCUAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-18T17:37:53.949Z",
               "EditorCaption": ""

@@ -6,6 +6,10 @@ namespace LogicClasses
     {
         public static void InsertionUserPrompt()
         {
+            UserPrompt.ShowExistingTables();
+
+            //---------------------------------------
+
             string? input;
             Type? table = default;
             bool continueInsertion = true;
@@ -98,7 +102,7 @@ namespace LogicClasses
             return ConvertToPropertyType(input, prop.PropertyType);
         }
 
-        static object ConvertToPropertyType(string input, Type targetType)
+        public static object ConvertToPropertyType(string input, Type targetType)
         {
             try
             {

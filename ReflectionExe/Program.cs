@@ -1,5 +1,4 @@
 ﻿using LogicClasses;
-using System.Linq;
 
 namespace ReflectionExe
 {
@@ -17,22 +16,29 @@ namespace ReflectionExe
 
             #region Creation Process
             //Creation.CreationUserPrompt();
+            //Console.WriteLine("---------------------------------------------------\n");
             #endregion
 
             //--------------------------------
 
             #region Insertion Process
             //Insertion.InsertionUserPrompt();
+            //Console.WriteLine("---------------------------------------------------\n");
             #endregion
 
             //--------------------------------
 
             #region Selection Process
-            Selection.SelectUserPrompt();
+            //Selection.SelectUserPrompt();
+            //Console.WriteLine("---------------------------------------------------\n");
             #endregion
 
             //--------------------------------
 
+            #region Deletion Process
+            Deletion.DeleteUserPrompt();
+            Console.WriteLine("---------------------------------------------------\n");
+            #endregion
         }
     }
 }

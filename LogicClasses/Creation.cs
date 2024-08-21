@@ -1,5 +1,4 @@
-﻿using System.Xml.XPath;
-using static LogicClasses.UserPrompt;
+﻿using static LogicClasses.UserPrompt;
 
 namespace LogicClasses
 {
@@ -26,6 +25,10 @@ namespace LogicClasses
 
         public static void CreationUserPrompt()
         {
+            UserPrompt.ShowExistingTables();
+
+            //---------------------------------------
+
             string? numOfTablesInput;
             uint numOfTables;
 

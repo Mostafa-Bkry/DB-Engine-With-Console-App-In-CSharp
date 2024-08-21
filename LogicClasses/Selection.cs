@@ -1,14 +1,20 @@
-﻿namespace LogicClasses
+﻿using System.Reflection;
+
+namespace LogicClasses
 {
     public class Selection
     {
         public static void SelectUserPrompt()
         {
-            if(Tables.UserTables.Count == 0)
+            if (Tables.UserTables.Count == 0)
             {
                 Console.WriteLine("There are no tables to select from them yet!");
                 return;
             }
+
+            UserPrompt.ShowExistingTables();
+
+            //-------------------------------------
 
             string? input;
             string tableName = "";
@@ -36,9 +42,44 @@
             }
             else
             {
+                #region Showing Table Columns To user
+                //table columns
+                var tableColumns = Tables.UserTables.Keys
+                                         .Where(t => t.Name.ToLower() == tableName.ToLower())
+                                         .Select(table => table.GetProperties())
+                                         .ToList();
+
+                string[]? colNames = default;
+
+                if (tableColumns != null && tableColumns.Count > 0)
+                {
+                    colNames = new string[tableColumns[0].Length];
+
+                    Console.WriteLine($"\n------{tableName} Columns------");
+                    for (int i = 0; i < tableColumns?.Count; i++)
+                    {
+                       PropertyInfo[]? column = tableColumns[i];
+
+                        for (int j = 0; j < column?.Length; j++)
+                        {
+                            colNames[j] = column[j].Name.ToLower();
+
+                            if (j == column.Length - 1)
+                            {
+                                Console.WriteLine($"{column[j].Name}");
+                                break;
+                            }
+                            Console.Write($"{column[j].Name} / ");
+                        }
+                    }
+                    Console.WriteLine();
+                }
+                #endregion
+
                 #region Getting Column Name From User to Select with it
                 bool check = true;
                 string columnName = "";
+                int colIndex = 0;
 
                 while (check)
                 {
@@ -47,15 +88,18 @@
 
                     if (!string.IsNullOrEmpty(input))
                     {
-                        var r = Tables.UserTables.Keys
-                                         .Where(t => t.Name.ToLower() == tableName.ToLower())
-                                         .Select(table => table.GetProperties()
-                                                               .FirstOrDefault(p => p.Name.ToLower() == input.ToLower()))
-                                         .ToList();
+                        //var r = Tables.UserTables.Keys
+                        //                 .Where(t => t.Name.ToLower() == tableName.ToLower())
+                        //                 .Select(table => table.GetProperties()
+                        //                                       .FirstOrDefault(p => p.Name.ToLower() == input.ToLower()))
+                        //                 .ToList();
+
+                        string? r = colNames?.FirstOrDefault(n => n == input.ToLower());
 
                         if (r != null)
                         {
-                            columnName = r[0].Name;
+                            columnName = r;
+                            colIndex = Array.IndexOf(colNames ?? [], r);
                             check = false;
                         }
                         else
@@ -64,17 +108,33 @@
                 }
                 #endregion
 
-                #region Getting the value that the user search for and select result
+                #region Getting the value that the user search for and select result With data Validation
                 string? valueInput = "";
 
-                do
+                while(true)
                 {
-                    Console.Write($"Select from {tableName} Where {columnName} = ");
-                    valueInput = Console.ReadLine();
-                }
-                while (string.IsNullOrEmpty(valueInput));
+                    do
+                    {
+                        Console.Write($"Select from {tableName} Where {columnName} = ");
+                        valueInput = Console.ReadLine();
+                    }
+                    while (string.IsNullOrEmpty(valueInput));
 
-                SelectMatching(tableName, valueInput);
+                    var dataChecker = Tables.UserTables.Keys
+                                             .Where(t => t.Name.ToLower() == tableName.ToLower())
+                                             .Select(table => table.GetProperties())
+                                             .Select(props => props[colIndex].PropertyType)
+                                             .FirstOrDefault();
+
+                    if(dataChecker != null && Insertion.ConvertToPropertyType(valueInput, dataChecker) != null)
+                    {
+                        check = false;
+                        break;
+                    }
+                }
+
+
+                SelectMatching(tableName, valueInput, colIndex);
                 #endregion
             }
         }
@@ -82,7 +142,7 @@
         #region Select All
         private static void SelectAll(string tableName)
         {
-            Console.WriteLine($"------{tableName}------");
+            Console.WriteLine($"\n------{tableName}------");
 
             foreach (OneTableData item in Tables.TablesData.Where(item => item.Table.Name == tableName))
             {
@@ -104,9 +164,9 @@
         #endregion
 
         #region Select by specific value
-        private static void SelectMatching(string tableName, string valueInput)
+        private static void SelectMatching(string tableName, string valueInput, int columnIndex)
         {
-            Console.WriteLine($"------{tableName}------");
+            Console.WriteLine($"\n------{tableName}------");
 
             foreach (OneTableData item in Tables.TablesData.Where(item => item.Table.Name == tableName))
             {
@@ -114,7 +174,7 @@
                 {
                     for (int i = 0; i < arr?.Length; i++)
                     {
-                        if (arr.Contains(valueInput))
+                        if (arr[columnIndex] == valueInput)
                         {
                             if (i == arr.Length - 1)
                             {

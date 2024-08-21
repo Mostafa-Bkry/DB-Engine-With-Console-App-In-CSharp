@@ -1,4 +1,2 @@
 department
 int:Id,varchar:Name,varchar:description
-1,SE,Software Engineering
-2,IT,Information Technology

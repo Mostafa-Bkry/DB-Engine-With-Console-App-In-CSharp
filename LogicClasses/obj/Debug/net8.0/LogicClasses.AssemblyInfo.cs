@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LogicClasses")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+384d46fef0cda09d195065c3c9605dda117d39e5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b332cea932112d5d3b4b87a8d58a6dd436445137")]
 [assembly: System.Reflection.AssemblyProductAttribute("LogicClasses")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LogicClasses")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

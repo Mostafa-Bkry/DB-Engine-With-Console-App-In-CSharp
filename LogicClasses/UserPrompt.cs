@@ -4,6 +4,25 @@
     {
         public static List<string> columnDataTypeInSqlForm { get; private set; } = new List<string>();
 
+        public static void ShowExistingTables()
+        {
+            //Prompt to the user the already existing tables
+            if (ExistingTables.FetchedTablesExiting?.Count > 0)
+            {
+                Console.WriteLine("Existing Tables:\n------------------------");
+                for (int i = 0; i < ExistingTables.FetchedTablesExiting?.Count; i++)
+                {
+                    if (i == ExistingTables.FetchedTablesExiting.Count - 1)
+                    {
+                        Console.WriteLine($"{ExistingTables.FetchedTablesExiting[i]}");
+                        break;
+                    }
+                    Console.Write($"{ExistingTables.FetchedTablesExiting[i]} / ");
+                }
+            }
+            Console.WriteLine();
+        }
+
         #region Table
         //Enter Table
         public static string TableName()
@@ -21,8 +40,7 @@
 
                 if (CheckIfFileExist(input))
                 {
-                    Console.WriteLine($"You already has The {input} table");
-                    Console.WriteLine("You can only insert, update or delete on this table");
+                    Console.WriteLine($"You already has {input} table (Only CRUD operations are allowed)");
                     Console.WriteLine("\n-----------------------\n");
                 }
                 else
@@ -80,7 +98,7 @@
                 do
                 {
                     Console.WriteLine($"Enter The {i + 1} Column Data Type: ");
-                    Console.WriteLine("Note: Write (char , varchar) no range specification allowed");
+                    Console.WriteLine("-----> Note: (char , varchar) no range specification allowed");
                     input = Console.ReadLine();
                 }                                  
                 while (string.IsNullOrEmpty(input) || CheckColumnDataType(input) == null);
@@ -159,29 +177,40 @@
         //Create the file
         public static void CreateFileForTable(string tableName, List<string> columns)
         {
-            //FileHeader
-            using (StreamWriter sw = new StreamWriter(@$".\Created Tables\{tableName.ToLower()}.txt", false))
+            try
             {
-                sw.WriteLine($"{tableName}");
-                for (int i = 0; i < columns?.Count; i++)
+                //FileHeader
+                using (StreamWriter sw = new StreamWriter(@$".\Created Tables\{tableName.ToLower()}.txt", false))
                 {
-                    if (i == columns.Count - 1)
+                    sw.WriteLine($"{tableName}");
+                    for (int i = 0; i < columns?.Count; i++)
                     {
-                        sw.WriteLine($"{columnDataTypeInSqlForm[i]}:{columns[i]}");
-                        break;
+                        if (i == columns.Count - 1)
+                        {
+                            sw.WriteLine($"{columnDataTypeInSqlForm[i]}:{columns[i]}");
+                            break;
+                        }
+                        sw.Write($"{columnDataTypeInSqlForm[i]}:{columns[i]},");
                     }
-                    sw.Write($"{columnDataTypeInSqlForm[i]}:{columns[i]},");
-                }
 
-                //for (int j = 0; j < columns?.Count; j++)
-                //{
-                //    if (j == columns.Count - 1)
-                //    {
-                //        sw.WriteLine($"{AddFirstRow(columns[j])}");
-                //        break;
-                //    }
-                //    sw.Write($"{AddFirstRow(columns[j])},");
-                //}
+                    //for (int j = 0; j < columns?.Count; j++)
+                    //{
+                    //    if (j == columns.Count - 1)
+                    //    {
+                    //        sw.WriteLine($"{AddFirstRow(columns[j])}");
+                    //        break;
+                    //    }
+                    //    sw.Write($"{AddFirstRow(columns[j])},");
+                    //}
+                }
+            }
+            catch (DirectoryNotFoundException)
+            {
+                Console.WriteLine("Can't find the Created Tables Directory");
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine($"{ex.Message}");
             }
         }
 
