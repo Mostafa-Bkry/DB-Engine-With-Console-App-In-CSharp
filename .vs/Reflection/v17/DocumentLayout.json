@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{A32B6A99-93B7-4150-A02E-751A1CD48BB7}|LogicClasses\\LogicClasses.csproj|solutionrelative:logicclasses\\updation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{14AE49B5-00FB-41AA-A66C-A3206F74EAC4}|ReflectionExe\\ReflectionExe.csproj|d:\\courses\\depi\\technical\\2- c#\\final project (reflection)\\my work\\reflection\\reflectionexe\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{14AE49B5-00FB-41AA-A66C-A3206F74EAC4}|ReflectionExe\\ReflectionExe.csproj|solutionrelative:reflectionexe\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A32B6A99-93B7-4150-A02E-751A1CD48BB7}|LogicClasses\\LogicClasses.csproj|d:\\courses\\depi\\technical\\2- c#\\final project (reflection)\\my work\\reflection\\logicclasses\\insertion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A32B6A99-93B7-4150-A02E-751A1CD48BB7}|LogicClasses\\LogicClasses.csproj|solutionrelative:logicclasses\\insertion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A32B6A99-93B7-4150-A02E-751A1CD48BB7}|LogicClasses\\LogicClasses.csproj|d:\\courses\\depi\\technical\\2- c#\\final project (reflection)\\my work\\reflection\\logicclasses\\deletion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A32B6A99-93B7-4150-A02E-751A1CD48BB7}|LogicClasses\\LogicClasses.csproj|solutionrelative:logicclasses\\deletion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{14AE49B5-00FB-41AA-A66C-A3206F74EAC4}|ReflectionExe\\ReflectionExe.csproj|d:\\courses\\depi\\technical\\2- c#\\final project (reflection)\\my work\\reflection\\reflectionexe\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{14AE49B5-00FB-41AA-A66C-A3206F74EAC4}|ReflectionExe\\ReflectionExe.csproj|solutionrelative:reflectionexe\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -36,33 +36,33 @@
               "RelativeDocumentMoniker": "LogicClasses\\Updation.cs",
               "ToolTip": "D:\\Courses\\DEPI\\Technical\\2- C#\\Final Project (Reflection)\\My Work\\Reflection\\LogicClasses\\Updation.cs",
               "RelativeToolTip": "LogicClasses\\Updation.cs",
-              "ViewState": "AQIAAAEAAAAAAAAAAAAAwAUBAAASAAAA",
+              "ViewState": "AQIAAHgAAAAAAAAAAAAIwH0AAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-21T00:33:26.681Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Deletion.cs",
-              "DocumentMoniker": "D:\\Courses\\DEPI\\Technical\\2- C#\\Final Project (Reflection)\\My Work\\Reflection\\LogicClasses\\Deletion.cs",
-              "RelativeDocumentMoniker": "LogicClasses\\Deletion.cs",
-              "ToolTip": "D:\\Courses\\DEPI\\Technical\\2- C#\\Final Project (Reflection)\\My Work\\Reflection\\LogicClasses\\Deletion.cs",
-              "RelativeToolTip": "LogicClasses\\Deletion.cs",
-              "ViewState": "AQIAACsAAAAAAAAAAAAgwP4AAAASAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-20T18:52:05.291Z",
+              "WhenOpened": "2024-08-21T14:55:48.858Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Insertion.cs",
+              "DocumentMoniker": "D:\\Courses\\DEPI\\Technical\\2- C#\\Final Project (Reflection)\\My Work\\Reflection\\LogicClasses\\Insertion.cs",
+              "RelativeDocumentMoniker": "LogicClasses\\Insertion.cs",
+              "ToolTip": "D:\\Courses\\DEPI\\Technical\\2- C#\\Final Project (Reflection)\\My Work\\Reflection\\LogicClasses\\Insertion.cs",
+              "RelativeToolTip": "LogicClasses\\Insertion.cs",
+              "ViewState": "AQIAAGoAAAAAAAAAAAAwwHgAAAA0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-21T14:19:25.456Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Courses\\DEPI\\Technical\\2- C#\\Final Project (Reflection)\\My Work\\Reflection\\ReflectionExe\\Program.cs",
               "RelativeDocumentMoniker": "ReflectionExe\\Program.cs",
               "ToolTip": "D:\\Courses\\DEPI\\Technical\\2- C#\\Final Project (Reflection)\\My Work\\Reflection\\ReflectionExe\\Program.cs",
               "RelativeToolTip": "ReflectionExe\\Program.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAAAAwC8AAAAMAAAA",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAwC4AAABXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-18T17:37:53.949Z",
               "EditorCaption": ""

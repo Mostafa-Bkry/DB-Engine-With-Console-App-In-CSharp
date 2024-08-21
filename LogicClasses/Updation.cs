@@ -123,6 +123,16 @@ namespace LogicClasses
 
             if (input.ToLower() == "all")
             {
+                #region Checking ID Duplication
+                if (columnName.ToLower() == "id" || columnName.ToLower().Contains("_id") ||
+                                    columnName.ToLower().Contains("id_") || columnName.ToLower().Contains("-id") ||
+                                    columnName.ToLower().Contains("id-"))
+                {
+                    Console.WriteLine("Can't Update Ids with same value (Invalid Duplicate IDs)");
+                    return;
+                } 
+                #endregion
+
                 UpdateAll(tableName, newValueInput, colIndex);
             }
             else
@@ -176,6 +186,24 @@ namespace LogicClasses
                     if (dataChecker != null && Insertion.ConvertToPropertyType(oldValueInput, dataChecker) != null)
                         break;
                 }
+                #endregion
+
+                #region Checking ID Duplication
+                if (conditionColumnName.ToLower() == "id" || conditionColumnName.ToLower().Contains("_id") ||
+                                    conditionColumnName.ToLower().Contains("id_") || conditionColumnName.ToLower().Contains("-id") ||
+                                    conditionColumnName.ToLower().Contains("id-"))
+                {
+                    var c = Tables.TablesData
+                              .Where(table => table.Table.Name.ToLower() == tableName)
+                              .Select(obj => obj.Data.Find(arr => arr[conditionColIndex] == newValueInput))
+                              .ToList();
+
+                    if (!c.Contains(null) && c.Count > 0)
+                    {
+                        Console.WriteLine("Can't Update Ids with same value (Invalid Duplicate IDs)");
+                        return;
+                    }
+                } 
                 #endregion
 
                 UpdateMatching(tableName, oldValueInput, newValueInput, conditionColIndex);

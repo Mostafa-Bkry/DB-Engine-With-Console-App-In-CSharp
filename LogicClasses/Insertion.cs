@@ -60,12 +60,12 @@ namespace LogicClasses
                 for (int i = 0; i < props.Length; i++)
                 {
                     PropertyInfo prop = props[i];
-                    prop.SetValue(instance, InsertUserPrompt(prop));
+                    prop.SetValue(instance, InsertUserPrompt(type, prop, i));
                     propsDataArr[i] = prop?.GetValue(instance)?.ToString() ?? "";
 
                     using (StreamWriter sw = new StreamWriter($@".\Created Tables\{type.Name.ToLower()}.txt", true))
                     {
-                        if(i == props.Length - 1)
+                        if (i == props.Length - 1)
                         {
                             sw.WriteLine($"{prop.GetValue(instance)}");
                             break;
@@ -87,19 +87,48 @@ namespace LogicClasses
             }
         }
 
-        private static object InsertUserPrompt(PropertyInfo prop)
+        private static object InsertUserPrompt(Type type, PropertyInfo prop, int colIndexInDataArr)
         {
             string? input;
 
-            do
+            while (true)
             {
-                Console.Write($"{prop.Name} = ");
-                input = Console.ReadLine();
-            }
-            while (string.IsNullOrEmpty(input) || 
-                ConvertToPropertyType(input, prop.PropertyType) == null);
+                do
+                {
+                    Console.Write($"{prop.Name} = ");
+                    input = Console.ReadLine();
+                }
+                while (string.IsNullOrEmpty(input) || ConvertToPropertyType(input, prop.PropertyType) == null);
 
+                if (CheckDuplicateID(type, prop, input, colIndexInDataArr))
+                    continue;
+                break;
+
+            }
             return ConvertToPropertyType(input, prop.PropertyType);
+        }
+
+        private static bool CheckDuplicateID(Type type, PropertyInfo prop, string input, int colIndexInDataArr)
+        {
+            if (prop.Name.ToLower() == "id" || prop.Name.ToLower().Contains("_id") ||
+                            prop.Name.ToLower().Contains("id_") || prop.Name.ToLower().Contains("-id") ||
+                            prop.Name.ToLower().Contains("id-"))
+            {
+                var r = Tables.TablesData.Where(table => table.Table == type)
+                              .Select(obj => obj.Data.Find(arr => arr[colIndexInDataArr] == input))
+                              .ToList();
+
+                if (!r.Contains(null) && r.Count > 0)
+                {
+                    Console.WriteLine("Invalid Duplicate ID");
+                    return true;
+                }
+                return false;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public static object ConvertToPropertyType(string input, Type targetType)
