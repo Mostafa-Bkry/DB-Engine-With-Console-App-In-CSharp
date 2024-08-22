@@ -89,6 +89,12 @@ namespace ReflectionExe
                                 break;
                             //--------------------------------
                             case 6:
+                                #region Truncation Process
+                                Truncation.TruncateUserPrompt();
+                                Console.WriteLine("---------------------------------------------------\n");
+                                Console.WriteLine("Press Enter To Continue");
+                                Console.ReadLine(); 
+                                #endregion
                                 break;
                             default:
                                 break;

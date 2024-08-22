@@ -8,7 +8,7 @@ namespace LogicClasses
         {
             if (Tables.UserTables.Count == 0)
             {
-                Console.WriteLine("There are no tables to Update them yet!");
+                Console.WriteLine("\nThere are no tables to Update them yet!");
                 return;
             }
 
@@ -172,19 +172,19 @@ namespace LogicClasses
                 }
                 #endregion
 
-                #region Getting the old value that will be Updated with the new value
-                string? oldValueInput = "";
+                #region Getting the value of column in where condition that will search by it for the right row
+                string? whereValueInput = "";
 
                 while (true)
                 {
                     do
                     {
                         Console.WriteLine($"\nUpdate {tableName}");
-                        Console.WriteLine($"Set {conditionColumnName} = {newValueInput}");
+                        Console.WriteLine($"Set {columnName} = {newValueInput}");
                         Console.Write($"Where {conditionColumnName} = ");
-                        oldValueInput = Console.ReadLine();
+                        whereValueInput = Console.ReadLine();
                     }
-                    while (string.IsNullOrEmpty(oldValueInput));
+                    while (string.IsNullOrEmpty(whereValueInput));
 
                     var dataChecker = Tables.UserTables.Keys
                                              .Where(t => t.Name.ToLower() == tableName.ToLower())
@@ -192,7 +192,7 @@ namespace LogicClasses
                                              .Select(props => props[conditionColIndex].PropertyType)
                                              .FirstOrDefault();
 
-                    if (dataChecker != null && Insertion.ConvertToPropertyType(oldValueInput, dataChecker) != null)
+                    if (dataChecker != null && Insertion.ConvertToPropertyType(whereValueInput, dataChecker) != null)
                         break;
                 }
                 #endregion
@@ -215,7 +215,7 @@ namespace LogicClasses
                 }
                 #endregion
 
-                UpdateMatching(tableName, oldValueInput, newValueInput, conditionColIndex);
+                UpdateMatching(tableName, whereValueInput, newValueInput, conditionColIndex, colIndex);
             }
         }
 
@@ -299,23 +299,24 @@ namespace LogicClasses
         #endregion
 
         #region Update by specific value
-        private static void UpdateMatching(string tableName, string oldValue, string newValue, int columnIndex)
+        private static void UpdateMatching
+            (string tableName, string whereValue, string newValue, int wherecolIndex, int updatedColIndex)
         {
             int updatedCount = 0;
 
             #region Updating at TablesData List
             foreach (OneTableData item in Tables.TablesData.Where(item => item.Table.Name == tableName))
             {
-                updatedCount = item.Data.FindAll(arr => arr[columnIndex] == oldValue).Count;
+                var data = item.Data.ToList();
+                updatedCount = item.Data.FindAll(arr => arr[wherecolIndex] == whereValue).Count;
 
                 for (int i = 0; i < item.Data.Count; i++)
                 {
-                    string[] arr = item.Data[i];
-
-                    if (arr[columnIndex] == oldValue)
-                    {
-                        item.Data[i][columnIndex] = newValue;
-                    }
+                    if (data[i][wherecolIndex] == whereValue)
+                        Tables.TablesData
+                              .Where(item => item.Table.Name == tableName)
+                              .Select(obj => obj.Data)
+                              .ToList()[0][i][updatedColIndex] = newValue;
                 }
             }
             #endregion
@@ -340,9 +341,9 @@ namespace LogicClasses
                     {
                         string[] row = lines[i].Split(',');
 
-                        if (row[columnIndex] == oldValue)
+                        if (row[wherecolIndex] == whereValue)
                         {
-                            row[columnIndex] = newValue;
+                            row[updatedColIndex] = newValue;
 
                             for (int j = 0; j < row?.Length; j++)
                             {

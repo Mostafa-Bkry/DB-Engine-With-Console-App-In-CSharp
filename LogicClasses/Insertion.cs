@@ -6,6 +6,12 @@ namespace LogicClasses
     {
         public static void InsertionUserPrompt()
         {
+            if (Tables.UserTables.Count == 0)
+            {
+                Console.WriteLine("\nThere are no tables to Insert into them yet!");
+                return;
+            }
+
             UserPrompt.ShowExistingTables();
 
             //---------------------------------------

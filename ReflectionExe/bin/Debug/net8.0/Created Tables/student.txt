@@ -1,0 +1,6 @@
+student
+int:ID,varchar:Name,int:Age
+1,Mostafa,20
+2,Ahmed,20
+3,Khaled,30
+4,Ali,10

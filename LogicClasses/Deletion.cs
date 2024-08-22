@@ -8,7 +8,7 @@ namespace LogicClasses
         {
             if (Tables.UserTables.Count == 0)
             {
-                Console.WriteLine("There are no tables to Delete from them yet!");
+                Console.WriteLine("\nThere are no tables to Delete from them yet!");
                 return;
             }
 
@@ -197,26 +197,17 @@ namespace LogicClasses
             #region Deleting from TablesData List
             foreach (OneTableData item in Tables.TablesData.Where(item => item.Table.Name == tableName))
             {
-                for (int i = 0; i < item.Data.Count; i++)
+                var data = item.Data.ToList();
+                deletedCount = data.FindAll(arr => arr[columnIndex] == valueInput).Count;
+
+                for (int i = 0; i < data?.Count; i++)
                 {
-                    string[] arr = item.Data[i];
-                    deletedCount = item.Data.FindAll(arr => arr[columnIndex] == valueInput).Count;
-                    item.Data.FindAll(arr => arr[columnIndex] == valueInput).Remove(arr);
-
-                    //if (arr[columnIndex] == valueInput)
-                    //{
-                    //    item.Data.Remove(arr);
-                    //}
-
-                    //if (arr.Contains(valueInput))
-                    //{
-                    //var r = Tables.TablesData
-                    //               .Where(item => item.Table.Name == tableName)
-                    //               .Select(t => t.Data.FindAll(dataArr => dataArr[columnIndex] == valueInput))
-                    //               .ToList();
-
-                    //    deletedCount = r[0].Count();
-                    //}
+                    if (data[i][columnIndex] == valueInput)
+                        Tables.TablesData
+                              .Where(item => item.Table.Name == tableName)
+                              .Select(obj => obj.Data)
+                              .ToList()[0]
+                              .RemoveAt(i);
                 }
             }
             #endregion

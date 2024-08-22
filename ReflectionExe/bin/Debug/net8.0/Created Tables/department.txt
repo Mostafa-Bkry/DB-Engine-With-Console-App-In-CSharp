@@ -1,0 +1,2 @@
+department
+int:ID,varchar:Name

@@ -8,7 +8,7 @@ namespace LogicClasses
         {
             if (Tables.UserTables.Count == 0)
             {
-                Console.WriteLine("There are no tables to select from them yet!");
+                Console.WriteLine("\nThere are no tables to select from them yet!");
                 return;
             }
 
